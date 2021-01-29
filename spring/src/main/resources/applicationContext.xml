@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="student" class="com.allweing.bean.Student">
+        <property name="name" value="lili"/>
+        <property name="id" value="12"/>
+        <property name="list">
+            <list>
+                <value>lili</value>
+                <value>popo</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="teacher" class="com.allweing.bean.Teacher" scope="prototype">
+        <property name="className" value="${jdbc.userName}"/>
+        <property name="teacherId" value="001"/>
+        <property name="student" ref="student"/>
+    </bean>
+
+    <bean id="user" class="com.allweing.bean.UserFactory"/>
+
+    <bean id="myProcessHandler" class="com.allweing.bean.MyProcessHandler"/>
+
+</beans>
