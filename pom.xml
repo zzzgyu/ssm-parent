@@ -18,6 +18,7 @@
         <module>ssm</module>
         <module>ssm</module>
         <module>ssm-xml</module>
+        <module>spring-anno2</module>
     </modules>
 
 
